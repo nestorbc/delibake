@@ -1,0 +1,243 @@
+/* abrir el menu hamburguesa */
+const hamburgerToggle = document.querySelector('.hamburger-toggle');
+const hamburgerPanel = document.getElementById('hamburgerPanel');
+
+hamburgerToggle.addEventListener('click', () => {
+  hamburgerPanel.style.display =
+    hamburgerPanel.style.display === 'block' ? 'none' : 'block';
+  searchPanel.style.display = 'none'; // Cierra buscador si estaba abierto
+});
+
+/* --------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+
+/* Abrir el buscador de la lupa */
+const searchIcon = document.querySelector('.search-icon');
+const searchPanel = document.getElementById('searchPanel');
+
+searchIcon.addEventListener('click', () => {
+  searchPanel.style.display =
+    searchPanel.style.display === 'block' ? 'none' : 'block';
+  hamburgerPanel.style.display = 'none'; // Cierra menú si estaba abierto
+});
+
+/* Cerrar el buscador al hacer clic fuera */
+ const toggle = document.getElementById('dropdown-toggle');
+
+  document.addEventListener('click', function (e) {
+    // Cierra si haces clic fuera
+    if (!toggle.contains(e.target)) {
+      toggle.classList.remove('open');
+    } else {
+      toggle.classList.toggle('open');
+    }
+  });
+
+
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+
+      /* Función para cambiar el comentario y autor al hacer clic en los círculos */
+    const circles = document.querySelectorAll('.circle');
+    const commentText = document.getElementById('comment-text');
+    const authorText = document.getElementById('author-text');
+
+    const comments = [
+      {
+        text: "¡La mejor panadería de la ciudad! Sus croissants son irresistibles y el ambiente es muy acogedor.",
+        author: "LAURA GOMEZ"
+      },
+      {
+        text: "Siempre que paso por aquí, no puedo resistirme a comprar sus panes artesanales. ¡Son de excelente calidad!",
+        author: "JUAN MARTINEZ"
+      },
+      {
+        text: "Me encanta la variedad de productos y la frescura de cada uno. Recomiendo mucho esta panadería.",
+        author: "MARIA LOPEZ"
+      }
+    ];
+
+    circles.forEach(circle => {
+  circle.addEventListener('click', () => {
+    const index = parseInt(circle.getAttribute('data-index'));
+
+    // Actualiza el contenido
+    commentText.textContent = comments[index].text;
+    authorText.textContent = comments[index].author;
+
+    // Activa sólo el círculo clicado
+    circles.forEach(c => c.classList.remove('active'));
+    circle.classList.add('active');
+  });
+});
+
+
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+//-------// función para mostrar comentario en la interfaz
+function mostrarComentario(c) {
+  const comentariosContainer = document.getElementById("comentariosContainer");
+  const caja = document.createElement('div');
+  caja.className = 'comentario-caja';
+
+  // Calificación con estrellas
+  let calificacion = parseInt(c.rating);
+  if (isNaN(calificacion) || calificacion < 1 || calificacion > 5) {
+      calificacion = 0;
+  }
+  let estrellas = '';
+  for (let i = 0; i < calificacion; i++) estrellas += '★';
+  for (let i = calificacion; i < 5; i++) estrellas += '☆';
+
+  const imageUrl = c.imagen_path || '';
+
+  caja.innerHTML = `
+    <div class="comentario-header">
+      <h1 class="comentario-titulo">${c.nom} ${c.cognom}</h1>
+    </div>
+    <p>${c.message}</p>
+    <p>Rating: ${estrellas}</p>
+    ${imageUrl ? `
+      <div class="foto-comentario">
+        <img src="${imageUrl}" alt="Foto del comentario" style="max-width:200px;">
+        <a href="${imageUrl}" download class="descargar-foto">Descargar foto</a>
+      </div>
+    ` : ''}
+    <button class="borrarComentario" 
+      data-nom="${c.nom}" 
+      data-cognom="${c.cognom}" 
+      data-message="${encodeURIComponent(c.message)}" 
+      data-image="${c.imagen_path}">Borrar comentario</button>
+  `;
+
+  // Evento para borrar comentario
+  const btnBorrar = caja.querySelector('.borrarComentario');
+  btnBorrar.addEventListener('click', () => {
+    const nom = btnBorrar.getAttribute('data-nom');
+    const cognom = btnBorrar.getAttribute('data-cognom');
+    const message = decodeURIComponent(btnBorrar.getAttribute('data-message'));
+    const imagePath = btnBorrar.getAttribute('data-image');
+
+    fetch('borrar_comentario.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ nom, cognom, message, imagen_path: imagePath })
+    })
+    .then(res => res.json())
+    .then(resData => {
+      if (resData.success) {
+        caja.remove();
+      } else {
+        alert('Error al borrar: ' + resData.error);
+      }
+    })
+    .catch(err => {
+      alert('Error en la petición: ' + err.message);
+    });
+  });
+
+  // Añadimos el comentario al contenedor
+  document.getElementById("comentariosContainer").appendChild(caja);
+}
+
+// Evento para el botón de enviar comentario con foto
+const form = document.getElementById("contactForm");
+const divEnviarDato = document.getElementById('enviarDatos');
+
+document.getElementById("enviarComentario").addEventListener("click", (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  console.log('Enviando:', [...formData.entries()]);
+
+  fetch('/Practica_4/Reviews/index.php', { method: 'POST', body: formData })
+    .then(res => res.text()) // primero obtener como texto
+    .then(text => {
+      try {
+        const data = JSON.parse(text);
+        if (data.success) {
+          // Obtener datos del formulario
+          const nom = form.nom.value || 'Anónimo';
+          const cognom = form.cognom.value || '';
+          const message = form.message.value || '';
+          const rating = form.rating.value || '0';
+
+          // Mostrar comentario en la interfaz
+          mostrarComentario({ 
+            nom, 
+            cognom,
+            message, 
+            rating, 
+            imagen_path: data.rutaImagen 
+          });
+
+          // Mostrar la imagen subida en la vista previa (solo en comentarios)
+          divEnviarDato.innerHTML = '';
+          if (data.rutaImagen) {
+            const img = document.createElement('img');
+            img.src = data.rutaImagen;
+            img.alt = 'Imagen subida';
+            img.style.maxWidth = '200px';
+            img.style.display = 'block';
+            img.style.marginTop = '10px';
+
+            const linkDescarga = document.createElement('a');
+            linkDescarga.href = data.rutaImagen;
+            linkDescarga.download = 'imagen_subida.png';
+            linkDescarga.textContent = 'Descargar foto';
+            linkDescarga.className = 'descargar-foto';
+            linkDescarga.style.display = 'inline-block';
+            linkDescarga.style.marginTop = '10px';
+            linkDescarga.style.padding = '8px 12px';
+            linkDescarga.style.backgroundColor = '#4CAF50';
+            linkDescarga.style.color = 'white';
+            linkDescarga.style.textDecoration = 'none';
+            linkDescarga.style.borderRadius = '4px';
+
+            divEnviarDato.appendChild(img);
+            divEnviarDato.appendChild(linkDescarga);
+          } else {
+            divEnviarDato.innerHTML = '<p>No se subió ninguna imagen.</p>';
+          }
+
+          form.reset();
+        } else {
+          alert('Error: ' + data.error);
+        }
+      } catch (e) {
+        console.error('Respuesta no es JSON:', text);
+        alert('Respuesta inesperada del servidor.');
+      }
+    })
+    .catch(error => {
+      console.error('Error en la petición:', error);
+      alert('Error en la conexión.');
+    });
+});
+
+// Cargar comentarios existentes al cargar
+function cargarComentarios() {
+  fetch('listar_comentarios.php')
+    .then(response => {
+      if (!response.ok) throw new Error('Respuesta no OK: ' + response.status);
+      return response.json();
+    })
+    .then(comentarios => {
+      const container = document.getElementById("comentariosContainer");
+      container.innerHTML = '';
+      if (comentarios.length === 0) {
+        container.innerHTML = '<p>No hay comentarios almacenados.</p>';
+      } else {
+        comentarios.forEach(c => {
+          mostrarComentario(c);
+        });
+      }
+    })
+    .catch(error => {
+      alert('Error al obtener los comentarios: ' + error.message);
+    });
+}
+
+// Ejecutar al cargar
+cargarComentarios();

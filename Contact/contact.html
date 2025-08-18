@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="contact.js" defer></script>
+    <title>Contact</title>
+</head>
+
+<body>
+
+    <section id="headerup">
+            <div>
+                <p>DELIBAKE</p>
+                <p>BAKERY AND PASTRY</p>
+            </div>
+
+            <nav>
+                <a href="../index.html">HOME</a>
+                <a href="../About/about.html">ABOUT</a>
+                <a href="../Menu/menu.html">ABOUT</a>
+                
+                
+                <span class="dropdown" id="dropdown-toggle">
+                    PAGES ▼
+                    <div class="dropdown-menu" id="dropdown-menu">
+                    <!-- <div>KITCHEN</div> -->
+                    <a href="../Kitchen/kitchen.html">KITCHEN</a>
+                    <!-- <div>REVIEWS</div> -->
+                    <a href="../Reviews/reviews.html">REVIEWS</a>
+                    <div>SERVICES</div>
+                    <!-- <div>TEAM</div> -->
+                    <a href="../Bakers/bakers.html">TEAM</a>
+                    <!-- <div>FAQS</div> -->
+                    <a href="../Faqs/faqs.html">FAQS</a>
+                    <!-- <div>BLOG</div> -->
+                    <a href="../Blog/blog.html">BLOG</a>
+                    <div>SINGLE POST</div>
+                    <div>404 PAGE</div>
+                    </div>
+                </span>
+                <!-- <span>CONTACT</span> -->
+                <!-- <a href="../Contact/contact.html">CONTACT</a> -->
+                <a href="#">CONTACT</a>
+            </nav>
+
+
+
+            <div class="iconos-menu">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="hamburger-toggle"><i class="fa-solid fa-bars"></i></span>
+            </div>
+
+            <!-- Panel del menú hamburguesa -->
+            <div class="hamburger-panel" id="hamburgerPanel">
+                <p>DELIBAKE</p>
+                <p>BAKERY AND PASTRY</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus. Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
+                <p>Our Contact</p>
+                <p>457 Morningview Lane, NY</p>
+                <p>+1 234 567 890</p>
+                <p>anymail@gmail.com</p>
+                <p>Sun - Fri, 9am -5pm</p>
+                <p>Fb Tw Ln Ig</p>
+            </div>
+
+            <!-- Panel del buscador -->
+            <div class="search-panel" id="searchPanel">
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
+
+            <!-- <div class="results">
+                <div class="item">Café</div>
+                <div class="item">Té</div>
+                <div class="item">Chocolate</div>
+            </div> -->
+
+
+
+    </section>
+
+    <section id="ourContact">
+
+        <div>
+            <p>Our Contact</p>
+            <p>HOME <span>></span>CONTACT</p>
+        </div>
+
+    </section>
+
+    <section id="contact">
+
+        <article>
+            <p></p>
+            <p>Address</p>
+            <p>457 Morningview Lane</p>
+            <p>New York USA</p>
+        </article>
+
+        <article>
+            <p></p>
+            <p>Phone</p>
+            <p>+1(234)567890</p>
+            <p>+0(987)654321</p>
+        </article>
+
+        <article>
+            <p></p>
+            <p>Email</p>
+            <p>Delibake@mails.com</p>
+            <p>example@mail.com</p>
+        </article>
+
+    </section>
+
+    <section id="ourContacts">
+
+        <div>
+            <p>OUR CONTACT</p>
+            <p>Send a Message</p>
+        </div>
+
+    </section>
+
+    <section id="formulari">
+
+        
+        <div>
+            <form action="altauser.php" method="POST" id="contactForm">
+              <input type="text" name="nom" placeholder="First Name" class="underline-input">
+              <input type="text" name="cognom" placeholder="Last Name" class="underline-input">
+              <input type="text" name="email" placeholder="Email" class="underline-input">
+              <input type="textarea" name="message" placeholder="Message" class="underline-input">
+
+              <div>
+
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+                            
+                <!-- <button id="enviarDatos" type="button">VER TODOS LOS NOMBRES</button>
+                <button id="enviarComentario" type="button">VER TODOS LOS COMENTARIOS</button> -->
+                <!-- Incluye este código en tu formulario donde quieras que aparezca la calificación -->
+                <!-- Contenedor para las estrellas -->
+                <div class="stars-container">
+                    <p>CALIFICACION</p>
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" class="star" title="Excelente">★</label>
+                    
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" class="star" title="Muy bueno">★</label>
+                    
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" class="star" title="Bueno">★</label>
+                    
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" class="star" title="Regular">★</label>
+                    
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" class="star" title="Malo">★</label>
+                </div>
+                <button id="enviarComentario" type="submit">SEND MESSAGE</button>
+
+              </div>
+              
+
+
+            </form>
+        </div>
+        
+        
+
+    </section>
+
+    <section id="ourComents">
+
+        <div>
+            <p>OUR COMMENTS</p>
+            <p>Give Us a Review</p>
+        </div>
+
+    </section>
+
+        
+    <section id="comentarios">
+        
+        <div id="comentariosContainer"></div>
+        <!-- <div id="enviarComentario"></div> -->
+        <!-- <div id="enviarDatos"></div> -->
+    </section>
+
+     <section id="map">
+        
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11936.94686232948!2d1.6005303242304374!3d41.5857614904031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a469dd0ad22785%3A0x8372c0f219b85a57!2sIgualada%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1751477740967!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+    </section>
+
+    <section id="subscribe">
+        <div>
+            <p>NEWSLETTER</p>
+            <p>Subscribe to Our News</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit ipsam. Ut elit tellus, vitae tempus purus, pulvinar dapibus nibh.</p>
+        </div>
+        <div>
+            <input type="text" placeholder="Email">
+            <button>SUBSCRIBE</button>
+        </div>
+    </section>
+
+    <section id="footerEnd">
+
+        <div>
+
+            <article>
+                <p>DELIBAKE</p>
+                <p>BAKERY AND PASTRY</p>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipiscing. </p>
+                <p>Fb Tw Ln Ig</p>
+            </article>
+
+            <article>
+                <p>Get In Touch</p>
+                <p>457 Morningview Lane, NY</p>
+                <p>example@gmail.com</p>
+                <p>+1(234)456789</p>
+                <p>Mon - Fri: 09:00 - 16:00 </p>
+            </article>
+
+
+            <article>
+                <p>About Us</p>
+                <p>Our Story</p>
+                <p>Visit Us</p>
+                <p>FAQs Post</p>
+                <p>Blog Post</p>
+                <p>Contact</p>
+            </article>
+
+
+            <article>
+                <p>Latest News</p>
+                <p>26 MAY 2022</p>
+                <p>Sugar reduction is key for a healthy future</p>
+                <p>26 MAY 2022</p>
+                <p>Trends food and beverage industry today</p>
+                <p>26 MAY 2022</p>
+                <p>Going banana (bread) over bread baking</p>
+            </article>
+
+
+
+        </div>
+
+
+
+
+        <div>
+            <p></p>
+            <p>Copyright © 2022 ASK Project</p>
+        </div>
+
+
+    </section>
+
+
+
+
+
+</body>
+</html>

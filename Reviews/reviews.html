@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reviews.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="reviews.js" defer></script>
+    <title>Reviews</title>
+</head>
+
+<body>
+
+    <section id="headerup">
+            <div>
+                <p>DELIBAKE</p>
+                <p>BAKERY AND PASTRY</p>
+            </div>
+
+            <nav>
+                <a href="../index.html">HOME</a>
+                <a href="../About/about.html">ABOUT</a>
+                <a href="../Menu/menu.html">MENU</a>
+                
+                <span class="dropdown" id="dropdown-toggle">
+                    PAGES ▼
+                    <div class="dropdown-menu" id="dropdown-menu">
+                    <!-- <div>KITCHEN</div> -->
+                    <a href="../Kitchen/kitchen.html">KITCHEN</a>
+                    <!-- <div>REVIEWS</div> -->
+                    <!-- <a href="../Reviews/reviews.html">REVIEWS</a> -->
+                    <a href="#">REVIEWS</a>
+                    <div>SERVICES</div>
+                    <!-- <div>TEAM</div> -->
+                    <a href="../Bakers/bakers.html">TEAM</a>
+                    <!-- <div>FAQS</div> -->
+                    <a href="../Faqs/faqs.html">FAQS</a>
+                    <!-- <div>BLOG</div> -->
+                    <a href="../Blog/blog.html">BLOG</a>
+                    <div>SINGLE POST</div>
+                    <div>404 PAGE</div>
+                    </div>
+                </span>
+                <!-- <span>CONTACT</span> -->
+                <a href="../Contact/contact.html">CONTACT</a>
+            </nav>
+
+
+
+            <div class="iconos-menu">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="hamburger-toggle"><i class="fa-solid fa-bars"></i></span>
+            </div>
+
+            <!-- Panel del menú hamburguesa -->
+            <div class="hamburger-panel" id="hamburgerPanel">
+                <p>DELIBAKE</p>
+                <p>BAKERY AND PASTRY</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus. Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
+                <p>Our Contact</p>
+                <p>457 Morningview Lane, NY</p>
+                <p>+1 234 567 890</p>
+                <p>anymail@gmail.com</p>
+                <p>Sun - Fri, 9am -5pm</p>
+                <p>Fb Tw Ln Ig</p>
+            </div>
+
+            <!-- Panel del buscador -->
+            <div class="search-panel" id="searchPanel">
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
+
+            <!-- <div class="results">
+                <div class="item">Café</div>
+                <div class="item">Té</div>
+                <div class="item">Chocolate</div>
+            </div> -->
+
+
+
+    </section>
+
+    <section id="ourReviews">
+
+        <div>
+            <p>Client Reviews</p>
+            <p>HOME <span>></span>REVIEWS</p>
+        </div>
+
+    </section>
+
+    <section id="headerdown">
+            <div>
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+            </div>
+
+            <p id="comment-text">¡La mejor panadería de la ciudad! Sus croissants son irresistibles y el ambiente es muy acogedor.</p>
+            <p id="author-text">LAURA GOMEZ</p>
+            <div id="comment-controls">
+                <div class="circle active" data-index="0"></div>
+                <div class="circle" data-index="1"></div>
+                <div class="circle" data-index="2"></div>
+            </div>
+    </section>
+
+    <section id="making">
+
+        <div>
+            <p>TESTIMONIALS</p>
+            <p>More Review From Clients</p>
+        </div>
+
+    </section>
+
+    <section id="testimonials">
+        <article>
+            <p>99</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, quibusdam. Quisque ipsum dolor sit amet consectetur adipisicing elit. Ut elit tellus. Sed ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p><span>JANELLA FROST Custumer</span></p>
+        </article>
+
+        <article>
+            <p>99</p>
+            <p>Suspendisse et nisl ut ligula imperdiet tincidunt. Ut elit tellus. Sed ipsum dolor sit amet consectetur adipisicing elit. Saepe, quibusdam. Quisque ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p><span>GEORGE TUNF Custumer</span></p>
+        </article>
+
+        <article>
+            <p>99</p>
+            <p>Quisque ipsum dolor sit amet consectetur adipisicing elit. Ut elit tellus. Sed ipsum dolor sit amet consectetur adipisicing elit. Saepe, quibusdam. Quisque ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p><span>RIHANNA CLARK Custumer</span></p>
+        </article>
+
+        <article>
+            <p>99</p>
+            <p>Etiam semper magna ut vehicula scelerisque. Ut elit tellus, luctus ut luctus non, dictum vel nisi. Oekkebtesqye Sed ipsum dolor sit amet consectetur adipisicing elit. Turpis sed ipsum dolor sit amet.</p>
+            <p><span>TOMMY YOUNG Custumer</span></p>
+        </article>
+
+
+    </section>
+
+    <section id="ourContact">
+
+        <div>
+            <p>OUR CONTACT</p>
+            <p>Give Us a Review</p>
+        </div>
+
+    </section>
+
+    <section id="formulari">
+
+        
+        <div>
+            <form action="altauser.php" method="POST" id="contactForm">
+              <input type="text" name="nom" placeholder="First Name" class="underline-input">
+              <input type="text" name="cognom" placeholder="Last Name" class="underline-input">
+              <input type="text" name="email" placeholder="Email" class="underline-input">
+              <input type="textarea" name="message" placeholder="Message" class="underline-input">
+
+              <div>
+
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+                            
+                <!-- <button id="enviarDatos" type="button">VER TODOS LOS NOMBRES</button>
+                <button id="enviarComentario" type="button">VER TODOS LOS COMENTARIOS</button> -->
+                <!-- Incluye este código en tu formulario donde quieras que aparezca la calificación -->
+                <!-- Contenedor para las estrellas -->
+                <div class="stars-container">
+                    <p>CALIFICACION</p>
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" class="star" title="Excelente">★</label>
+                    
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" class="star" title="Muy bueno">★</label>
+                    
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" class="star" title="Bueno">★</label>
+                    
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" class="star" title="Regular">★</label>
+                    
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" class="star" title="Malo">★</label>
+                </div>
+                <button id="enviarComentario" type="submit">SEND MESSAGE</button>
+
+              </div>
+              
+
+
+            </form>
+        </div>
+        
+        
+
+    </section>
+
+    <section id="ourComents">
+
+        <div>
+            <p>OUR COMMENTS</p>
+            <p>Give Us a Review</p>
+        </div>
+
+    </section>
+
+        
+    <section id="comentarios">
+        
+        <div id="comentariosContainer"></div>
+        <!-- <div id="enviarComentario"></div> -->
+        <!-- <div id="enviarDatos"></div> -->
+    </section>
+
+    <section id="subscribe">
+        <div>
+            <p>NEWSLETTER</p>
+            <p>Subscribe to Our News</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit ipsam. Ut elit tellus, vitae tempus purus, pulvinar dapibus nibh.</p>
+        </div>
+        <div>
+            <input type="text" placeholder="Email">
+            <button>SUBSCRIBE</button>
+        </div>
+    </section>
+
+    <section id="footerEnd">
+
+        <div>
+
+            <article>
+                <p>DELIBAKE</p>
+                <p>BAKERY AND PASTRY</p>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipiscing. </p>
+                <p>Fb Tw Ln Ig</p>
+            </article>
+
+            <article>
+                <p>Get In Touch</p>
+                <p>457 Morningview Lane, NY</p>
+                <p>example@gmail.com</p>
+                <p>+1(234)456789</p>
+                <p>Mon - Fri: 09:00 - 16:00 </p>
+            </article>
+
+
+            <article>
+                <p>About Us</p>
+                <p>Our Story</p>
+                <p>Visit Us</p>
+                <p>FAQs Post</p>
+                <p>Blog Post</p>
+                <p>Contact</p>
+            </article>
+
+
+            <article>
+                <p>Latest News</p>
+                <p>26 MAY 2022</p>
+                <p>Sugar reduction is key for a healthy future</p>
+                <p>26 MAY 2022</p>
+                <p>Trends food and beverage industry today</p>
+                <p>26 MAY 2022</p>
+                <p>Going banana (bread) over bread baking</p>
+            </article>
+
+
+
+        </div>
+
+
+
+
+        <div>
+            <p></p>
+            <p>Copyright © 2022 ASK Project</p>
+        </div>
+
+
+    </section>
+
+
+
+
+    
+</body>
+</html>

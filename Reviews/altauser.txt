@@ -1,0 +1,47 @@
+<?php
+header('Content-Type: application/json');
+
+// Llegir dades JSON del fetch
+$datosJSON = file_get_contents('php://input');
+
+if (!$datosJSON) {
+    echo json_encode(['missatge' => 'No s’han rebut dades']);
+    exit;
+}
+
+$datos = json_decode($datosJSON, true);
+
+if (!$datos || !isset($datos['nom'], $datos['cognom'], $datos['email'], $datos['message'], $datos['rating'])) {
+    echo json_encode(['missatge' => 'Dades no vàlides']);
+    exit;
+}
+
+$nom = $datos['nom'];
+$cogonom = $datos['cognom'];
+$email = $datos['email'];
+$message = $datos['message'];
+$rating = $datos['rating'];
+
+// Connexió a la base de dades
+$conn = new mysqli('localhost', 'root', '', 'delibake');
+
+if ($conn->connect_error) {
+    die(json_encode(['missatge' => 'Error de connexió a la BD: ' . $conn->connect_error]));
+}
+
+$stmt = $conn->prepare("INSERT INTO USER (nom, cognom, email, message, rating) VALUES (?, ?, ?, ?, ?)");
+if (!$stmt) {
+    die(json_encode(['missatge' => 'Error en preparar la consulta: ' . $conn->error]));
+}
+
+$stmt->bind_param("sssss", $nom, $cognom, $email, $message, $rating);
+
+if ($stmt->execute()) {
+    echo json_encode(['missatge' => 'Dades guardades correctament']);
+} else {
+    echo json_encode(['missatge' => 'Error en guardar dades: ' . $stmt->error]);
+}
+
+$stmt->close();
+$conn->close();
+?>

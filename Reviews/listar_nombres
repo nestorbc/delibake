@@ -1,0 +1,23 @@
+<?php
+header('Content-Type: application/json');
+
+$conn = new mysqli('localhost', 'root', '', 'casino2');
+
+if ($conn->connect_error) {
+    die(json_encode(['error' => 'Error de conexión: ' . $conn->connect_error]));
+}
+
+// Opcional: si quieres listar solo los nombres, no necesitas WHERE
+$result = $conn->query("SELECT nom FROM USUARIS");
+
+$nombres = [];
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $nombres[] = $row['nom'];
+    }
+}
+
+$conn->close();
+
+echo json_encode($nombres);
+?>
