@@ -1269,7 +1269,7 @@ body {
         & p:nth-of-type(1){
           width: 100%;
           height: 50%;
-          font-size: 60px;
+          font-size: 50px;
           text-align: center;
           justify-content: center;
           font-weight: bold;
@@ -1416,9 +1416,9 @@ body {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-top: 0px;
+          margin-top: 20px;
           flex-wrap: wrap;
-          margin-bottom: 100px;
+          margin-bottom: 50px;
           
           
 
@@ -1585,7 +1585,7 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 320px;
+      margin-top: 300px;
       flex-wrap: wrap;
 
       & div:nth-of-type(1){
@@ -1610,8 +1610,8 @@ body {
         }
         & p:nth-of-type(2){
           width: 100%;
-          height: 50%;
-          font-size: 50px;
+          height: 40%;
+          font-size: 45px;
           text-align: center;
           justify-content: center;
           color: black;
