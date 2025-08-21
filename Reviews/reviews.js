@@ -1,4 +1,4 @@
-/* abrir el menu hamburguesa */
+/* abrir/cerrar el menu hamburguesa */
 const hamburgerToggle = document.querySelector('.hamburger-toggle');
 const hamburgerPanel = document.getElementById('hamburgerPanel');
 
@@ -6,6 +6,11 @@ hamburgerToggle.addEventListener('click', () => {
   hamburgerPanel.style.display =
     hamburgerPanel.style.display === 'block' ? 'none' : 'block';
   searchPanel.style.display = 'none'; // Cierra buscador si estaba abierto
+});
+
+// 👇 Nuevo: cerrar si hago click en el panel
+hamburgerPanel.addEventListener('click', () => {
+  hamburgerPanel.style.display = 'none';
 });
 
 /* --------------------------------------------------------------------------------------------- */
