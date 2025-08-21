@@ -2975,9 +2975,9 @@ body {
           padding-top: 5px;     
         }
         & p:nth-of-type(3){
-          width: 100%;
+          width: 70%;
           height: 50%;
-          font-size: 40px;
+          font-size: 35px;
           text-align: start;
           justify-content: start;
           color: white;
