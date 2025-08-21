@@ -350,7 +350,7 @@ function cargarComentarios() {
       }
     })
     .catch(error => {
-      alert('Error al obtener los comentarios: ' + error.message);
+      //alert('Error al obtener los comentarios: ' + error.message);
     });
 }
 
